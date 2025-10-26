@@ -1,0 +1,19 @@
+# Netlify configuration for Mooner Tuner
+[build]
+  command = "flutter build web --release"
+  publish = "build/web"
+
+[build.environment]
+  FLUTTER_VERSION = "3.35.4"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
